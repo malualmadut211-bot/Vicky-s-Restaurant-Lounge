@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Vicky’s Restaurant & Lounge</title>
+    <meta name="description" content="Explore our diverse menu featuring breakfast, lunch, dinner, and drinks." />
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#9E1B32',
+              secondary: '#FACC15',
+              dark: '#1C1917',
+              light: '#FAFAF9',
+              'light-gray': '#E7E5E4',
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-light text-stone-800 antialiased font-sans">
+    
+    <!-- Navbar (Duplicated for Static Site) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center" id="logo-link">
+                    <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/logoo.png.png" alt="Vicky's Restaurant & Lounge" class="h-16 w-auto object-contain"/>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Home</a>
+                    <a href="menu.html" class="text-sm font-bold text-primary transition-colors">Menu</a>
+                    <a href="about.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">About Us</a>
+                    <a href="reviews.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Reviews</a>
+                    <a href="contact.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <div class="hidden md:flex flex-col items-center">
+                    <a href="tel:+211920000562" class="flex items-center gap-2 bg-primary hover:bg-red-900 text-white px-5 py-2.5 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm font-semibold mb-1">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-800 hover:text-primary transition-colors focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-7 h-7"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="hidden w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out origin-top scale-y-0 opacity-0 invisible">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Home</a>
+                <a href="menu.html" class="block px-3 py-3 rounded-md text-base font-medium text-primary bg-red-50">Menu</a>
+                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">About Us</a>
+                <a href="reviews.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Reviews</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Contact</a>
+                <div class="pt-4 mt-4 border-t border-stone-100">
+                    <a href="tel:+211920000562" class="flex w-full items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-xl font-semibold shadow-md active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <h1 class="font-serif text-5xl font-bold text-stone-900 mb-4">Our Menu</h1>
+                <p class="text-stone-500 max-w-2xl mx-auto">From early morning breakfast to late-night bites. Prices are in USD ($).</p>
+            </div>
+
+            <div class="space-y-4" id="menu-container">
+                <!-- Breakfast -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Breakfast</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Vicky's Special Breakfast</h3><p class="text-sm text-stone-500 mt-1">Eggs, sausages, baked beans, pancake and fruits</p></div><span class="font-bold text-primary">$11.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">English Breakfast</h3><p class="text-sm text-stone-500 mt-1">Fried eggs, grilled tomatoes, potatoes and sausage</p></div><span class="font-bold text-primary">$10.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Spanish Omelet</h3><p class="text-sm text-stone-500 mt-1">Eggs, tomatoes, onions and green pepper with bread</p></div><span class="font-bold text-primary">$8.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Scrambled Eggs</h3><p class="text-sm text-stone-500 mt-1">Served in milk/butter with bread</p></div><span class="font-bold text-primary">$8.5</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salads -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Salads</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Beef Salad</h3><p class="text-sm text-stone-500 mt-1">Grilled beef, mushrooms, lettuce, sweet chilli</p></div><span class="font-bold text-primary">$13.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Green Salad with Avocado</h3></div><span class="font-bold text-primary">$11.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <div class="flex justify-between items-start gap-4"><div><h3 class="font-bold text-stone-900">Chicken Hawaii Salad</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Pizza</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <h3 class="font-bold text-stone-900 mb-2">Margherita</h3>
+                                <div class="flex gap-2 text-sm flex-wrap"><span class="px-2 py-1 bg-white border rounded">Small: $9</span><span class="px-2 py-1 bg-white border rounded">Medium: $11</span><span class="px-2 py-1 bg-white border rounded">Large: $14</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <h3 class="font-bold text-stone-900 mb-2">Vegetable</h3>
+                                <div class="flex gap-2 text-sm flex-wrap"><span class="px-2 py-1 bg-white border rounded">Small: $9</span><span class="px-2 py-1 bg-white border rounded">Medium: $11</span><span class="px-2 py-1 bg-white border rounded">Large: $14</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <h3 class="font-bold text-stone-900 mb-2">Chicken</h3>
+                                <div class="flex gap-2 text-sm flex-wrap"><span class="px-2 py-1 bg-white border rounded">Small: $9.5</span><span class="px-2 py-1 bg-white border rounded">Med: $11.5</span><span class="px-2 py-1 bg-white border rounded">Large: $14.5</span></div>
+                            </div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                <h3 class="font-bold text-stone-900 mb-2">Beef</h3>
+                                <div class="flex gap-2 text-sm flex-wrap"><span class="px-2 py-1 bg-white border rounded">Small: $9.5</span><span class="px-2 py-1 bg-white border rounded">Med: $11.5</span><span class="px-2 py-1 bg-white border rounded">Large: $14.5</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beef Dishes -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Beef Dishes</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Beef Stew</h3></div><span class="font-bold text-primary">$12.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Beef Curry</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Beef Steak</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Fried Beef (Dry/Wet)</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chicken Dishes -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Chicken Dishes</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Grilled Half Chicken</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Chicken Curry</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Chicken Stew</h3></div><span class="font-bold text-primary">$13.5</span></div>
+                            <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><div><h3 class="font-bold text-stone-900">Stir Fry Chicken</h3></div><span class="font-bold text-primary">$12.5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alcoholic Drinks -->
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                    <button class="accordion-btn w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-stone-50 text-stone-900">
+                        <span class="font-serif text-xl font-bold">Alcoholic Drinks</span>
+                        <i data-lucide="chevron-down" class="chevron-icon transition-transform duration-300 w-5 h-5"></i>
+                    </button>
+                    <div class="content transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                        <div class="p-6 border-t border-stone-100 space-y-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-lg mb-4 pb-2 border-b border-stone-100">Beer</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><span>Heineken</span><span class="font-bold text-primary">$2.5</span></div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><span>Tusker Lager</span><span class="font-bold text-primary">$2</span></div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><span>Castle Lite</span><span class="font-bold text-primary">$2</span></div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100 flex justify-between"><span>Guinness</span><span class="font-bold text-primary">$2</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-lg mb-4 pb-2 border-b border-stone-100">Liqueur & Whiskey</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                     <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                        <h3 class="font-bold text-stone-900 mb-2">Jägermeister</h3>
+                                        <div class="flex gap-2 text-sm"><span class="px-2 py-1 bg-white border rounded">Tot: $1.5</span><span class="px-2 py-1 bg-white border rounded">Bottle: $60</span></div>
+                                    </div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                        <h3 class="font-bold text-stone-900 mb-2">Jack Daniel's</h3>
+                                        <div class="flex gap-2 text-sm"><span class="px-2 py-1 bg-white border rounded">Tot: $1.5</span><span class="px-2 py-1 bg-white border rounded">Bottle: $80</span></div>
+                                    </div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                        <h3 class="font-bold text-stone-900 mb-2">Johnnie Black Label</h3>
+                                        <div class="flex gap-2 text-sm"><span class="px-2 py-1 bg-white border rounded">Tot: $1.8</span><span class="px-2 py-1 bg-white border rounded">Bottle: $70</span></div>
+                                    </div>
+                                    <div class="p-4 bg-stone-50 rounded-xl border border-stone-100">
+                                        <h3 class="font-bold text-stone-900 mb-2">Hennessy VS</h3>
+                                        <div class="flex gap-2 text-sm"><span class="px-2 py-1 bg-white border rounded">Tot: $3</span><span class="px-2 py-1 bg-white border rounded">Bottle: $120</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 bg-white rounded-2xl p-6 shadow-sm border border-stone-100 flex items-start gap-4">
+                <i data-lucide="info" class="text-primary shrink-0 mt-1 w-5 h-5"></i>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Please inform our staff of any allergies or dietary restrictions before ordering. 
+                    Prices include all applicable taxes.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-stone-600 pt-16 pb-8 border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-serif text-3xl font-bold text-stone-900">Vicky’s Restaurant & Lounge</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">
+                        A modern restaurant and lounge offering bold flavors, handcrafted drinks, and an atmosphere designed for great food and unforgettable nights.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/vickysrestaurantandlounge?igsh=MXhrODMydGlkYmRpeA==" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/profile.php?id=100063453648813&mibextid=ZbWKwL" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/LoungeVicky?s=20" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@vickys.restaurant2?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Explore</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-primary transition-colors">Full Menu</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="reviews.html" class="hover:text-primary transition-colors">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Reservations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-primary shrink-0 mt-1 w-4 h-4"></i>
+                            <span>JIT Supermarket, Ministries Road, Kololo Near, Juba, South Sudan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-primary shrink-0 w-4 h-4"></i>
+                            <div class="flex flex-col">
+                                <a href="tel:+211920000562" class="hover:text-primary transition-colors">Order: +211 920 000 562</a>
+                                <a href="tel:0928011500" class="hover:text-primary transition-colors">Book: 0928 011 500</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
+                <p>&copy; 2024 Vicky’s Restaurant & Lounge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+</html>

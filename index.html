@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vicky’s Restaurant & Lounge</title>
+    <meta name="description" content="Upscale yet welcoming dining in Juba, South Sudan. Experience bold flavors and a cozy atmosphere." />
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#9E1B32',
+              secondary: '#FACC15',
+              dark: '#1C1917',
+              light: '#FAFAF9',
+              'light-gray': '#E7E5E4',
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+            }
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-light text-stone-800 antialiased font-sans selection:bg-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center" id="logo-link">
+                    <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/logoo.png.png" alt="Vicky's Restaurant & Lounge" class="h-16 w-auto object-contain"/>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-bold text-primary transition-colors">Home</a>
+                    <a href="menu.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Menu</a>
+                    <a href="about.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">About Us</a>
+                    <a href="reviews.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Reviews</a>
+                    <a href="contact.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex flex-col items-center">
+                    <a href="tel:+211920000562" class="flex items-center gap-2 bg-primary hover:bg-red-900 text-white px-5 py-2.5 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm font-semibold mb-1">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="tel:0920000562" class="text-xs font-bold text-stone-600 hover:text-primary transition-colors">0920 000 562</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-800 hover:text-primary transition-colors focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-7 h-7"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="hidden w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out origin-top scale-y-0 opacity-0 invisible">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-base font-medium text-primary bg-red-50">Home</a>
+                <a href="menu.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600 hover:text-primary hover:bg-stone-50">Menu</a>
+                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600 hover:text-primary hover:bg-stone-50">About Us</a>
+                <a href="reviews.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600 hover:text-primary hover:bg-stone-50">Reviews</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600 hover:text-primary hover:bg-stone-50">Contact</a>
+                
+                <div class="pt-4 mt-4 border-t border-stone-100">
+                    <a href="tel:+211920000562" class="flex w-full items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-xl font-semibold shadow-md active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 lg:pt-36 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-8 text-center lg:text-left animate-fade-in-up pb-8 lg:pb-0">
+                    <span class="inline-block py-1 px-3 rounded-full bg-red-50 text-primary text-sm font-semibold tracking-wide">Best Restaurant in Juba</span>
+                    <h1 class="font-serif text-5xl lg:text-7xl font-bold text-stone-900 leading-[1.1]">
+                        Good Food Brings<br/>
+                        <span class="text-primary relative inline-block">People Together.</span>
+                    </h1>
+                    <p class="text-stone-500 text-lg lg:text-xl max-w-xl mx-auto lg:mx-0">
+                        Bold flavors, handcrafted drinks, and a vibrant atmosphere suitable for families and friends. Come for the food, stay for the vibe.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="tel:+211920000562" class="px-8 py-4 bg-primary text-white rounded-full font-bold shadow-lg shadow-red-200 hover:bg-red-800 hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                            Order Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="menu.html" class="px-8 py-4 bg-white text-stone-800 border-2 border-stone-100 rounded-full font-bold hover:border-stone-300 hover:bg-stone-50 transition-all flex items-center justify-center">
+                            View Menu
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-2 text-stone-600 mt-6 font-medium">
+                        <i data-lucide="clock" class="text-primary w-5 h-5"></i>
+                        <span>Open Daily: 7:30 AM – 11:30 PM</span>
+                    </div>
+
+                    <div class="pt-8 flex items-center justify-center lg:justify-start gap-8">
+                        <div class="flex -space-x-3">
+                             <img src="https://picsum.photos/id/101/50/50" class="w-10 h-10 rounded-full border-2 border-white" alt="user">
+                             <img src="https://picsum.photos/id/102/50/50" class="w-10 h-10 rounded-full border-2 border-white" alt="user">
+                             <img src="https://picsum.photos/id/103/50/50" class="w-10 h-10 rounded-full border-2 border-white" alt="user">
+                             <div class="w-10 h-10 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs border-2 border-white">+4k</div>
+                        </div>
+                        <div class="text-left">
+                            <div class="flex text-yellow-500 space-x-0.5">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            </div>
+                            <p class="text-xs text-stone-500 font-medium">Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative mt-12 lg:mt-0">
+                    <div class="relative w-full aspect-square max-w-[300px] sm:max-w-md lg:max-w-lg mx-auto">
+                        <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/hero-image.jpg.png" alt="Signature Dish" class="w-full h-full object-cover rounded-full shadow-2xl animate-spin-slow relative z-10" />
+                        
+                        <div class="absolute bottom-10 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 animate-fade-in-up" style="animation-delay: 1.5s;">
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 bg-green-100 text-green-600 rounded-lg"><i data-lucide="leaf" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="text-xs text-stone-500">Quality</p>
+                                    <p class="font-bold text-sm">Fresh Ingredients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="pt-4 pb-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h4 class="text-primary font-bold uppercase tracking-wider text-sm mb-2">Our Menu</h4>
+                <h2 class="font-serif text-4xl font-bold text-stone-900 mb-4">Our Popular Dishes</h2>
+                <p class="text-stone-500">Experience the boldest flavors in Juba.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dish 1 -->
+                <div class="bg-white rounded-[2rem] p-4 shadow-soft hover:shadow-xl transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+                    <div class="relative h-48 w-full mb-4 flex items-center justify-center">
+                        <div class="absolute w-40 h-40 bg-red-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-in-out"></div>
+                        <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/men-image.jpg.jpg" alt="Burger" class="w-44 h-44 object-cover rounded-full shadow-lg relative z-10 group-hover:rotate-6 transition-all duration-500" />
+                    </div>
+                    <div class="flex flex-col flex-grow text-center px-2">
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Burger and Fries</h3>
+                        <div class="mt-auto pt-2 flex justify-center">
+                            <a href="menu.html" class="text-sm font-bold text-primary hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Dish 2 -->
+                 <div class="bg-white rounded-[2rem] p-4 shadow-soft hover:shadow-xl transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+                    <div class="relative h-48 w-full mb-4 flex items-center justify-center">
+                        <div class="absolute w-40 h-40 bg-red-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-in-out"></div>
+                        <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/u-image.jpg.jpeg" alt="Pizza" class="w-44 h-44 object-cover rounded-full shadow-lg relative z-10 group-hover:rotate-6 transition-all duration-500" />
+                    </div>
+                    <div class="flex flex-col flex-grow text-center px-2">
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Pizza</h3>
+                        <div class="mt-auto pt-2 flex justify-center">
+                            <a href="menu.html" class="text-sm font-bold text-primary hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Dish 3 -->
+                 <div class="bg-white rounded-[2rem] p-4 shadow-soft hover:shadow-xl transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+                    <div class="relative h-48 w-full mb-4 flex items-center justify-center">
+                        <div class="absolute w-40 h-40 bg-red-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-in-out"></div>
+                        <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/menuu-image.jpg.jpeg" alt="Biryani" class="w-44 h-44 object-cover rounded-full shadow-lg relative z-10 group-hover:rotate-6 transition-all duration-500" />
+                    </div>
+                    <div class="flex flex-col flex-grow text-center px-2">
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Biryani</h3>
+                        <div class="mt-auto pt-2 flex justify-center">
+                            <a href="menu.html" class="text-sm font-bold text-primary hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Dish 4 -->
+                 <div class="bg-white rounded-[2rem] p-4 shadow-soft hover:shadow-xl transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+                    <div class="relative h-48 w-full mb-4 flex items-center justify-center">
+                        <div class="absolute w-40 h-40 bg-red-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-in-out"></div>
+                        <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/me-image.jpg.jpg" alt="Chicken" class="w-44 h-44 object-cover rounded-full shadow-lg relative z-10 group-hover:rotate-6 transition-all duration-500" />
+                    </div>
+                    <div class="flex flex-col flex-grow text-center px-2">
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Chicken Thighs</h3>
+                        <div class="mt-auto pt-2 flex justify-center">
+                            <a href="menu.html" class="text-sm font-bold text-primary hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="menu.html" class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:underline underline-offset-4">
+                    Explore Full Menu <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center group cursor-default">
+                    <div class="w-16 h-16 rounded-2xl bg-white text-stone-800 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors shadow-sm border border-stone-100">
+                        <i data-lucide="utensils" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Dine-in</h3>
+                    <p class="text-stone-500 text-sm">Cozy Atmosphere</p>
+                </div>
+                <div class="flex flex-col items-center text-center group cursor-default">
+                    <div class="w-16 h-16 rounded-2xl bg-white text-stone-800 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors shadow-sm border border-stone-100">
+                        <i data-lucide="truck" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Delivery</h3>
+                    <p class="text-stone-500 text-sm">Fast & Fresh</p>
+                </div>
+                <div class="flex flex-col items-center text-center group cursor-default">
+                    <div class="w-16 h-16 rounded-2xl bg-white text-stone-800 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors shadow-sm border border-stone-100">
+                        <i data-lucide="clock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Takeout</h3>
+                    <p class="text-stone-500 text-sm">Quick Pickup</p>
+                </div>
+                <div class="flex flex-col items-center text-center group cursor-default">
+                    <div class="w-16 h-16 rounded-2xl bg-white text-stone-800 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors shadow-sm border border-stone-100">
+                        <i data-lucide="users" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Events</h3>
+                    <p class="text-stone-500 text-sm">Group Friendly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Snippet -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative order-2 lg:order-1">
+                    <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/aboutus-image.jpg.png" alt="Restaurant Interior" class="rounded-3xl shadow-2xl w-full h-[500px] object-cover" />
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h4 class="text-primary font-bold uppercase tracking-wider text-sm mb-2">Our Story</h4>
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-stone-900 mb-6">Welcome to Vicky’s</h2>
+                    <p class="text-stone-600 text-lg leading-relaxed mb-8">
+                        We are a modern restaurant and lounge offering bold flavors, handcrafted drinks, and an atmosphere designed for great food and unforgettable nights.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-stone-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-primary w-5 h-5"></i> Family-friendly environment
+                        </li>
+                        <li class="flex items-center gap-3 text-stone-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-primary w-5 h-5"></i> Wheelchair accessible
+                        </li>
+                        <li class="flex items-center gap-3 text-stone-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-primary w-5 h-5"></i> Outdoor seating available
+                        </li>
+                    </ul>
+                    <a href="about.html" class="inline-block px-8 py-3 bg-stone-900 text-white rounded-full font-semibold hover:bg-stone-700 transition-colors">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h4 class="text-primary font-bold uppercase tracking-wider text-sm mb-2">More than just a meal</h4>
+                <h2 class="font-serif text-4xl font-bold text-stone-900">Why Choose Vicky’s?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: Premium Experience -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-stone-100">
+                    <div class="w-14 h-14 bg-red-50 text-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="gem" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900 mb-3">Premium Experience</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Upscale ambiance suitable for dates, celebrations, and business meetings.</p>
+                </div>
+                <!-- Card 2: Vibrant Atmosphere -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-stone-100">
+                    <div class="w-14 h-14 bg-red-50 text-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="music" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900 mb-3">Vibrant Atmosphere</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">A cozy, trendy vibe that welcomes families, groups, and tourists alike.</p>
+                </div>
+                <!-- Card 3: Flexible Dining -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-stone-100">
+                    <div class="w-14 h-14 bg-red-50 text-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900 mb-3">Flexible Dining</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Dine-in, Takeout, or Delivery. Open early morning to late night.</p>
+                </div>
+                <!-- Card 4: Authentic Flavors -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-stone-100">
+                    <div class="w-14 h-14 bg-red-50 text-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils-crossed" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900 mb-3">Authentic Flavors</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">A diverse menu featuring local South Sudanese delicacies and international favorites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Snippet -->
+    <section class="py-20 bg-white" id="reviews">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h4 class="text-primary font-bold uppercase tracking-wider text-sm mb-2">Testimonials</h4>
+                <h2 class="font-serif text-4xl font-bold text-stone-900 mb-4">Loved by Our Guests</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all">
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-6 italic">"Absolutely the best spot in Juba! The atmosphere is incredibly cozy."</p>
+                    <div class="flex items-center justify-between border-t border-stone-100 pt-4">
+                        <span class="font-bold text-stone-900 text-sm">Sarah M.</span>
+                        <span class="text-xs text-stone-400">2 weeks ago</span>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all">
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-6 italic">"Great service and even better food. I love the lounge vibe."</p>
+                    <div class="flex items-center justify-between border-t border-stone-100 pt-4">
+                        <span class="font-bold text-stone-900 text-sm">James K.</span>
+                        <span class="text-xs text-stone-400">1 month ago</span>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all">
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-6 italic">"Family friendly and very clean. 5 stars!"</p>
+                    <div class="flex items-center justify-between border-t border-stone-100 pt-4">
+                        <span class="font-bold text-stone-900 text-sm">Amingo D.</span>
+                        <span class="text-xs text-stone-400">3 months ago</span>
+                    </div>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all">
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-6 italic">"A hidden gem near Ministries Road. The coffee is excellent."</p>
+                    <div class="flex items-center justify-between border-t border-stone-100 pt-4">
+                        <span class="font-bold text-stone-900 text-sm">Lisa R.</span>
+                        <span class="text-xs text-stone-400">1 week ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation & Mini Map Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-3xl overflow-hidden shadow-xl bg-white border border-stone-100">
+             
+             <!-- Simple Reservation Form -->
+             <div class="p-8 md:p-12 bg-stone-50">
+               <h3 class="font-serif text-3xl font-bold text-stone-900 mb-2">Book a Table</h3>
+               <p class="text-stone-500 mb-8">Reserve your spot instantly via WhatsApp.</p>
+               
+               <form id="reservation-form" class="space-y-4">
+                 <div>
+                   <label class="block text-sm font-medium text-stone-700 mb-1">Your Name</label>
+                   <input type="text" id="res-name" class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-1 focus:ring-primary focus:border-primary outline-none bg-white" placeholder="John Doe" required />
+                 </div>
+                 <div class="grid grid-cols-2 gap-4">
+                   <div>
+                     <label class="block text-sm font-medium text-stone-700 mb-1">Date</label>
+                     <input type="date" id="res-date" class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-1 focus:ring-primary focus:border-primary outline-none bg-white text-stone-600" required />
+                   </div>
+                   <div>
+                     <label class="block text-sm font-medium text-stone-700 mb-1">Time</label>
+                     <input type="time" id="res-time" class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-1 focus:ring-primary focus:border-primary outline-none bg-white text-stone-600" required />
+                   </div>
+                 </div>
+                 <div>
+                   <label class="block text-sm font-medium text-stone-700 mb-1">Guests</label>
+                   <select id="res-guests" class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-1 focus:ring-primary focus:border-primary outline-none bg-white text-stone-600">
+                     <option>2 People</option>
+                     <option>1 Person</option>
+                     <option>3 People</option>
+                     <option>4+ People</option>
+                     <option>Large Group</option>
+                   </select>
+                 </div>
+                 
+                 <button type="submit" class="w-full bg-primary hover:bg-red-800 text-white font-bold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-md mt-4">
+                    <i data-lucide="send" class="w-4 h-4"></i> Reserve via WhatsApp
+                 </button>
+                 <p class="text-xs text-stone-400 text-center mt-2">Request sent to 0928 011 500</p>
+               </form>
+             </div>
+
+             <!-- Mini Map -->
+             <div class="h-[400px] lg:h-auto bg-stone-200 relative">
+               <iframe 
+                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3976.220677490664!2d31.57923891476165!3d4.854675996476145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNMKwNTEnMTYuOCJOIDMxwrAzNCc1My4xIkU!5e0!3m2!1sen!2sus!4v1683827482910!5m2!1sen!2sus"
+                 width="100%" 
+                 height="100%" 
+                 style="border:0;" 
+                 allowFullScreen 
+                 loading="lazy" 
+                 referrerPolicy="no-referrer-when-downgrade"
+                 title="Vickys Location Mini"
+                 class="absolute inset-0"
+               ></iframe>
+             </div>
+
+           </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-stone-600 pt-16 pb-8 border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-serif text-3xl font-bold text-stone-900">Vicky’s Restaurant & Lounge</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">
+                        A modern restaurant and lounge offering bold flavors, handcrafted drinks, and an atmosphere designed for great food and unforgettable nights.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/vickysrestaurantandlounge?igsh=MXhrODMydGlkYmRpeA==" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/profile.php?id=100063453648813&mibextid=ZbWKwL" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/LoungeVicky?s=20" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@vickys.restaurant2?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Explore</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-primary transition-colors">Full Menu</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="reviews.html" class="hover:text-primary transition-colors">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Reservations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-primary shrink-0 mt-1 w-4 h-4"></i>
+                            <span>JIT Supermarket, Ministries Road, Kololo Near, Juba, South Sudan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-primary shrink-0 w-4 h-4"></i>
+                            <div class="flex flex-col">
+                                <a href="tel:+211920000562" class="hover:text-primary transition-colors">Order: +211 920 000 562</a>
+                                <a href="tel:0928011500" class="hover:text-primary transition-colors">Book: 0928 011 500</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
+                <p>&copy; 2024 Vicky’s Restaurant & Lounge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

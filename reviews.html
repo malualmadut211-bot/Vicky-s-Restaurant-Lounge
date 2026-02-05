@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews - Vicky’s Restaurant & Lounge</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#9E1B32',
+              secondary: '#FACC15',
+              dark: '#1C1917',
+              light: '#FAFAF9',
+              'light-gray': '#E7E5E4',
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased font-sans">
+    
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center" id="logo-link">
+                    <img src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/8ce4887cee8cb84f29f71549817a67e55771ae64/logoo.png.png" alt="Vicky's Restaurant & Lounge" class="h-16 w-auto object-contain"/>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Home</a>
+                    <a href="menu.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Menu</a>
+                    <a href="about.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">About Us</a>
+                    <a href="reviews.html" class="text-sm font-bold text-primary transition-colors">Reviews</a>
+                    <a href="contact.html" class="text-sm font-medium text-stone-600 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <div class="hidden md:flex flex-col items-center">
+                    <a href="tel:+211920000562" class="flex items-center gap-2 bg-primary hover:bg-red-900 text-white px-5 py-2.5 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm font-semibold mb-1">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>Call Now</span>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-800 hover:text-primary transition-colors focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-7 h-7"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="hidden w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out origin-top scale-y-0 opacity-0 invisible">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Home</a>
+                <a href="menu.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Menu</a>
+                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">About Us</a>
+                <a href="reviews.html" class="block px-3 py-3 rounded-md text-base font-medium text-primary bg-red-50">Reviews</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-base font-medium text-stone-600">Contact</a>
+                <div class="pt-4 mt-4 border-t border-stone-100">
+                    <a href="tel:+211920000562" class="flex w-full items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-xl font-semibold shadow-md active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="font-serif text-5xl font-bold text-stone-900 mb-4">Loved by Our Guests</h1>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <span class="text-6xl font-bold text-stone-900">5.0</span>
+                    <div class="flex flex-col items-start">
+                        <div class="flex text-yellow-400 mb-1 space-x-1">
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        </div>
+                        <span class="text-stone-500 text-sm">Based on Google Reviews</span>
+                    </div>
+                </div>
+                <p class="text-stone-500 max-w-2xl mx-auto">We value every piece of feedback. Here is what some of our recent customers had to say about their dining experience.</p>
+                <button class="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-white text-stone-900 border border-stone-200 rounded-full font-bold hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm">
+                    <i data-lucide="message-square" class="w-5 h-5"></i> Write a Review
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-yellow-400 space-x-0.5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-medium">2 weeks ago</span>
+                    </div>
+                    <p class="text-stone-600 italic mb-6 leading-relaxed">"Absolutely the best spot in Juba! The atmosphere is incredibly cozy and the grilled fish is to die for. Perfect for a Friday night out."</p>
+                    <div class="flex items-center gap-3 border-t border-stone-50 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-bold text-sm">S</div>
+                        <span class="font-bold text-stone-900">Sarah M.</span>
+                    </div>
+                </div>
+                 <!-- Review 2 -->
+                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-yellow-400 space-x-0.5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-medium">1 month ago</span>
+                    </div>
+                    <p class="text-stone-600 italic mb-6 leading-relaxed">"Great service and even better food. I love the lounge vibe in the evenings. Highly recommend the signature burger."</p>
+                    <div class="flex items-center gap-3 border-t border-stone-50 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-bold text-sm">J</div>
+                        <span class="font-bold text-stone-900">James K.</span>
+                    </div>
+                </div>
+                 <!-- Review 3 -->
+                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-yellow-400 space-x-0.5">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-medium">3 months ago</span>
+                    </div>
+                    <p class="text-stone-600 italic mb-6 leading-relaxed">"Family friendly and very clean. The staff went above and beyond to accommodate our large group. 5 stars!"</p>
+                    <div class="flex items-center gap-3 border-t border-stone-50 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-bold text-sm">A</div>
+                        <span class="font-bold text-stone-900">Amingo D.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-stone-600 pt-16 pb-8 border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 class="font-serif text-3xl font-bold text-stone-900">Vicky’s Restaurant & Lounge</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">
+                        A modern restaurant and lounge offering bold flavors, handcrafted drinks, and an atmosphere designed for great food and unforgettable nights.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                         <!-- Instagram -->
+                        <a href="https://www.instagram.com/vickysrestaurantandlounge?igsh=MXhrODMydGlkYmRpeA==" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/profile.php?id=100063453648813&mibextid=ZbWKwL" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/LoungeVicky?s=20" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@vickys.restaurant2?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Explore</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-primary transition-colors">Full Menu</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="reviews.html" class="hover:text-primary transition-colors">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Reservations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-stone-900 font-serif font-semibold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-primary shrink-0 mt-1 w-4 h-4"></i>
+                            <span>JIT Supermarket, Ministries Road, Kololo Near, Juba, South Sudan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-primary shrink-0 w-4 h-4"></i>
+                            <div class="flex flex-col">
+                                <a href="tel:+211920000562" class="hover:text-primary transition-colors">Order: +211 920 000 562</a>
+                                <a href="tel:0928011500" class="hover:text-primary transition-colors">Book: 0928 011 500</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
+                <p>&copy; 2024 Vicky’s Restaurant & Lounge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+</html>
